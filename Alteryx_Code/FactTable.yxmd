@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="330" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File RecordLimit="" FileFormat="23">aka:MySQL4|||Select mlb_dw.dim_address.* From mlb_dw.dim_address</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <ReadCentroids>False</ReadCentroids>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>address dimension</AnnotationText>
+          <DefaultAnnotationText>aka:MySQL4
+Table=Select mlb_dw.dim_address.* From mlb_dw.dim_address</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="AddressKey" source="File: aka:MySQL4|||Select mlb_dw.dim_address.* From mlb_dw.dim_address" type="Int32" />
+            <Field name="Team" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_address.* From mlb_dw.dim_address" type="V_String" />
+            <Field name="Park Name" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_address.* From mlb_dw.dim_address" type="V_String" />
+            <Field name="Street" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_address.* From mlb_dw.dim_address" type="V_String" />
+            <Field name="City" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_address.* From mlb_dw.dim_address" type="V_String" />
+            <Field name="State" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_address.* From mlb_dw.dim_address" type="V_String" />
+            <Field name="Zip" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_address.* From mlb_dw.dim_address" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="198" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File RecordLimit="" FileFormat="23">aka:MySQL4|||Select mlb_dw.dim_team.* From mlb_dw.dim_team</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <ReadCentroids>False</ReadCentroids>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>team dimension</AnnotationText>
+          <DefaultAnnotationText>aka:MySQL4
+Table=Select mlb_dw.dim_team.* From mlb_dw.dim_team</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="TeamKey" source="File: aka:MySQL4|||Select mlb_dw.dim_team.* From mlb_dw.dim_team" type="Int32" />
+            <Field name="Team" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_team.* From mlb_dw.dim_team" type="V_String" />
+            <Field name="TeamCity" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_team.* From mlb_dw.dim_team" type="V_String" />
+            <Field name="TeamMascot" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_team.* From mlb_dw.dim_team" type="V_String" />
+            <Field name="Phone" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_team.* From mlb_dw.dim_team" type="V_String" />
+            <Field name="Website1" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_team.* From mlb_dw.dim_team" type="V_String" />
+            <Field name="Website2" size="254" source="File: aka:MySQL4|||Select mlb_dw.dim_team.* From mlb_dw.dim_team" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\17032\Documents\Fall2019\Databases\Group Project\factTable_noKeys.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[ fact table data]]></AnnotationText>
+          <DefaultAnnotationText>factTable_noKeys.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Year" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Int16" />
+            <Field description="Formula: if [TEAM]     == 'Seattle'       then 'SEA'&#xA;elseif [TEAM] == 'Colorado'      then 'COL'&#xA;elseif [TEAM] == 'Cleveland'     then 'CLE'&#xA;elseif [TEAM] == 'Texas'         then 'TEX'&#xA;elseif [TEAM] == 'Oakland'       then 'OAK'&#xA;elseif [TEAM] == 'Houston'       then 'HOU'&#xA;elseif [TEAM] == 'Arizona'       then 'ARI'&#xA;elseif [TEAM] == 'St. Louis'     then 'STL'&#xA;elseif [TEAM] == 'NY Yankees'    then 'NYY'&#xA;elseif [TEAM] == 'San Francisco' then 'SFG'&#xA;elseif [TEAM] == 'Chicago Sox'   then 'CHW'&#xA;elseif [TEAM] == 'San Diego'     then 'SDP'&#xA;elseif [TEAM] == 'Chicago Cubs'  then 'CHC'&#xA;elseif [TEAM] == 'Boston'        then 'BOS'&#xA;elseif [TEAM] == 'Minnesota'     then 'MIN'&#xA;elseif [TEAM] == 'Toronto'       then 'TOR'&#xA;elseif [TEAM] == 'LA Dodgers'    then 'LAD'&#xA;elseif [TEAM] == 'Philadelphia'  then 'PHI'&#xA;elseif [TEAM] == 'Florida' or [TEAM] == 'Miami' then 'MIA'&#xA;elseif [TEAM] == 'Milwaukee'     then 'MIL'&#xA;elseif [TEAM] == 'Cincinnati'    then 'CIN'&#xA;elseif [TEAM] == 'Kansas City'   then 'KCR'&#xA;elseif [TEAM] == 'Atlanta'       then 'ATL'&#xA;elseif [TEAM] == 'Detroit'       then 'DET'&#xA;elseif [TEAM] == 'LA Angels'     then 'LAA'&#xA;elseif [TEAM] == 'Baltimore'     then 'BAL'&#xA;elseif [TEAM] == 'Tampa Bay'     then 'TBR'&#xA;elseif [TEAM] == 'Montreal' or [TEAM] == 'Washington' then 'WSN'&#xA;elseif [TEAM] == 'Pittsburgh'    then 'PIT'&#xA;else 'NYM'&#xA;endif" name="Team" size="3" source="Formula: if [TEAM]     == 'Seattle'       then 'SEA'&#xA;elseif [TEAM] == 'Colorado'      then 'COL'&#xA;elseif [TEAM] == 'Cleveland'     then 'CLE'&#xA;elseif [TEAM] == 'Texas'         then 'TEX'&#xA;elseif [TEAM] == 'Oakland'       then 'OAK'&#xA;elseif [TEAM] == 'Houston'       then 'HOU'&#xA;elseif [TEAM] == 'Arizona'       then 'ARI'&#xA;elseif [TEAM] == 'St. Louis'     then 'STL'&#xA;elseif [TEAM] == 'NY Yankees'    then 'NYY'&#xA;elseif [TEAM] == 'San Francisco' then 'SFG'&#xA;elseif [TEAM] == 'Chicago Sox'   then 'CHW'&#xA;elseif [TEAM] == 'San Diego'     then 'SDP'&#xA;elseif [TEAM] == 'Chicago Cubs'  then 'CHC'&#xA;elseif [TEAM] == 'Boston'        then 'BOS'&#xA;elseif [TEAM] == 'Minnesota'     then 'MIN'&#xA;elseif [TEAM] == 'Toronto'       then 'TOR'&#xA;elseif [TEAM] == 'LA Dodgers'    then 'LAD'&#xA;elseif [TEAM] == 'Philadelphia'  then 'PHI'&#xA;elseif [TEAM] == 'Florida' or [TEAM] == 'Miami' then 'MIA'&#xA;elseif [TEAM] == 'Milwaukee'     then 'MIL'&#xA;elseif [TEAM] == 'Cincinnati'    then 'CIN'&#xA;elseif [TEAM] == 'Kansas City'   then 'KCR'&#xA;elseif [TEAM] == 'Atlanta'       then 'ATL'&#xA;elseif [TEAM] == 'Detroit'       then 'DET'&#xA;elseif [TEAM] == 'LA Angels'     then 'LAA'&#xA;elseif [TEAM] == 'Baltimore'     then 'BAL'&#xA;elseif [TEAM] == 'Tampa Bay'     then 'TBR'&#xA;elseif [TEAM] == 'Montreal' or [TEAM] == 'Washington' then 'WSN'&#xA;elseif [TEAM] == 'Pittsburgh'    then 'PIT'&#xA;else 'NYM'&#xA;endif" type="String" />
+            <Field name="HomeGms" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="Int64" />
+            <Field name="TotalHomeAttendance" source="Formula: Replace([HOME TOTAL], &quot;,&quot;, &quot;&quot;)" type="Int64" />
+            <Field name="AvgHomeAttendance" size="1073741823" source="Formula: Round([HOME TOTAL]/[HOME GMS],2)" type="V_WString" />
+            <Field name="GP" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Byte" />
+            <Field name="Wins" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="Int64" />
+            <Field name="AB" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Int16" />
+            <Field name="R" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Int16" />
+            <Field name="HR" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Int16" />
+            <Field name="RBI" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Int16" />
+            <Field name="AVG" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Double" />
+            <Field name="OBP" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Double" />
+            <Field name="SLG" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Double" />
+            <Field name="OPS" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Hitting_Stats.csv" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="486" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File RecordLimit="" FileFormat="23">aka:MySQL4|||Select mlb_dw.dim_year.* From mlb_dw.dim_year</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <ReadCentroids>False</ReadCentroids>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>calendar dimension</AnnotationText>
+          <DefaultAnnotationText>aka:MySQL4
+Table=Select mlb_dw.dim_year.* From mlb_dw.dim_year</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="CalendarKey" source="File: aka:MySQL4|||Select mlb_dw.dim_year.* From mlb_dw.dim_year" type="Int32" />
+            <Field name="Year" source="File: aka:MySQL4|||Select mlb_dw.dim_year.* From mlb_dw.dim_year" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="330" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Team" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Team" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_TeamKey" selected="True" input="Right_" />
+                <SelectField field="Left_Year" selected="True" input="Left_" />
+                <SelectField field="Left_Team" selected="True" input="Left_" />
+                <SelectField field="Left_HomeGms" selected="True" input="Left_" />
+                <SelectField field="Left_TotalHomeAttendance" selected="True" input="Left_" />
+                <SelectField field="Left_AvgHomeAttendance" selected="True" input="Left_" />
+                <SelectField field="Left_GP" selected="True" input="Left_" />
+                <SelectField field="Left_Wins" selected="True" input="Left_" />
+                <SelectField field="Left_AB" selected="True" input="Left_" />
+                <SelectField field="Left_R" selected="True" input="Left_" />
+                <SelectField field="Left_HR" selected="True" input="Left_" />
+                <SelectField field="Left_RBI" selected="True" input="Left_" />
+                <SelectField field="Left_AVG" selected="True" input="Left_" />
+                <SelectField field="Left_OBP" selected="True" input="Left_" />
+                <SelectField field="Left_SLG" selected="True" input="Left_" />
+                <SelectField field="Left_OPS" selected="True" input="Left_" />
+                <SelectField field="Right_Team" selected="False" rename="Right_Team" input="Right_" />
+                <SelectField field="Right_TeamCity" selected="False" input="Right_" />
+                <SelectField field="Right_TeamMascot" selected="False" input="Right_" />
+                <SelectField field="Right_Phone" selected="False" input="Right_" />
+                <SelectField field="Right_Website1" selected="False" input="Right_" />
+                <SelectField field="Right_Website2" selected="False" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="486" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Team" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Team" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_TeamKey" selected="True" input="Left_" />
+                <SelectField field="Right_AddressKey" selected="True" input="Right_" />
+                <SelectField field="Left_Year" selected="True" input="Left_" />
+                <SelectField field="Left_Team" selected="True" input="Left_" />
+                <SelectField field="Left_HomeGms" selected="True" input="Left_" />
+                <SelectField field="Left_TotalHomeAttendance" selected="True" input="Left_" />
+                <SelectField field="Left_AvgHomeAttendance" selected="True" input="Left_" />
+                <SelectField field="Left_GP" selected="True" input="Left_" />
+                <SelectField field="Left_Wins" selected="True" input="Left_" />
+                <SelectField field="Left_AB" selected="True" input="Left_" />
+                <SelectField field="Left_R" selected="True" input="Left_" />
+                <SelectField field="Left_HR" selected="True" input="Left_" />
+                <SelectField field="Left_RBI" selected="True" input="Left_" />
+                <SelectField field="Left_AVG" selected="True" input="Left_" />
+                <SelectField field="Left_OBP" selected="True" input="Left_" />
+                <SelectField field="Left_SLG" selected="True" input="Left_" />
+                <SelectField field="Left_OPS" selected="True" input="Left_" />
+                <SelectField field="Right_Team" selected="False" rename="Right_Team" input="Right_" />
+                <SelectField field="Right_Park Name" selected="False" input="Right_" />
+                <SelectField field="Right_Street" selected="False" input="Right_" />
+                <SelectField field="Right_City" selected="False" input="Right_" />
+                <SelectField field="Right_State" selected="False" input="Right_" />
+                <SelectField field="Right_Zip" selected="False" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="642" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Year" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Year" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_CalendarKey" selected="True" input="Right_" />
+                <SelectField field="Left_TeamKey" selected="True" input="Left_" />
+                <SelectField field="Left_AddressKey" selected="True" input="Left_" />
+                <SelectField field="Left_Year" selected="True" input="Left_" />
+                <SelectField field="Left_Team" selected="True" input="Left_" />
+                <SelectField field="Left_HomeGms" selected="True" input="Left_" />
+                <SelectField field="Left_TotalHomeAttendance" selected="True" input="Left_" />
+                <SelectField field="Left_AvgHomeAttendance" selected="True" input="Left_" />
+                <SelectField field="Left_GP" selected="True" input="Left_" />
+                <SelectField field="Left_Wins" selected="True" input="Left_" />
+                <SelectField field="Left_AB" selected="True" input="Left_" />
+                <SelectField field="Left_R" selected="True" input="Left_" />
+                <SelectField field="Left_HR" selected="True" input="Left_" />
+                <SelectField field="Left_RBI" selected="True" input="Left_" />
+                <SelectField field="Left_AVG" selected="True" input="Left_" />
+                <SelectField field="Left_OBP" selected="True" input="Left_" />
+                <SelectField field="Left_SLG" selected="True" input="Left_" />
+                <SelectField field="Left_OPS" selected="True" input="Left_" />
+                <SelectField field="Right_Year" selected="False" rename="Right_Year" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="762" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="False" />
+            <SelectField field="Team" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="894" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL4|||mlb_factTable</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL>ALTER TABLE `mlb_dw`.`mlb_facttable` 
+CHANGE COLUMN `CalendarKey` `CalendarKey` INT(11) NOT NULL ,
+CHANGE COLUMN `TeamKey` `TeamKey` INT(11) NOT NULL ,
+CHANGE COLUMN `AddressKey` `AddressKey` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`CalendarKey`, `TeamKey`, `AddressKey`);
+;</PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use mlb_dw;
+DROP TABLE IF EXISTS mlb_factTable;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>output fact table to MySQL mlb_dw database</AnnotationText>
+          <DefaultAnnotationText>aka:MySQL4
+Table=mlb_factTable</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="8" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Join" />
+      <Destination ToolID="8" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="7" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="7" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="9" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Join" />
+      <Destination ToolID="9" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Join" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>FactTable</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

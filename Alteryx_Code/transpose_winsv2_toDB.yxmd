@@ -1,0 +1,1368 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="762" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>MLB_Wins.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Year" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2019" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2018" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2017" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2016" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2015" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2014" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2013" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2012" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2011" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2010" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2009" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2008" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2007" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2006" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2005" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2004" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2003" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2002" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="2001" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="222" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2019" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="330" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2019" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2018" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2017" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="342" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2018" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2017" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="654" y="822" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="714" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Name" selected="True" rename="Year" type="Int64" size="8" />
+            <SelectField field="Value" selected="True" rename="Wins" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2019" selected="False" />
+            <SelectField field="2018" selected="False" />
+            <SelectField field="2017" selected="False" />
+            <SelectField field="2016" selected="True" />
+            <SelectField field="2015" selected="False" />
+            <SelectField field="2014" selected="False" />
+            <SelectField field="2013" selected="False" />
+            <SelectField field="2012" selected="False" />
+            <SelectField field="2011" selected="False" />
+            <SelectField field="2010" selected="False" />
+            <SelectField field="2009" selected="False" />
+            <SelectField field="2008" selected="False" />
+            <SelectField field="2007" selected="False" />
+            <SelectField field="2006" selected="False" />
+            <SelectField field="2005" selected="False" />
+            <SelectField field="2004" selected="False" />
+            <SelectField field="2003" selected="False" />
+            <SelectField field="2002" selected="False" />
+            <SelectField field="2001" selected="False" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2016" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2015" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2015" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2014" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2014" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="474" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2013" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="474" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2013" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2012" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2012" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="570" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2011" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="570" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2011" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="618" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2010" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="618" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2010" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="2001" selected="False" />
+            <SelectField field="2002" selected="False" />
+            <SelectField field="2003" selected="False" />
+            <SelectField field="2004" selected="False" />
+            <SelectField field="2005" selected="False" />
+            <SelectField field="2006" selected="False" />
+            <SelectField field="2007" selected="False" />
+            <SelectField field="2008" selected="False" />
+            <SelectField field="2009" selected="True" />
+            <SelectField field="2010" selected="False" />
+            <SelectField field="2011" selected="False" />
+            <SelectField field="2012" selected="False" />
+            <SelectField field="2013" selected="False" />
+            <SelectField field="2014" selected="False" />
+            <SelectField field="2015" selected="False" />
+            <SelectField field="2016" selected="False" />
+            <SelectField field="2017" selected="False" />
+            <SelectField field="2018" selected="False" />
+            <SelectField field="2019" selected="False" />
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="2009" selected="True" />
+            <Field field="Team" selected="False" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="714" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2008" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="714" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2008" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="762" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2007" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="762" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2007" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="810" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2006" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="810" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2006" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="858" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2005" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="858" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2005" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="906" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2004" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="906" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2004" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="954" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2003" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="954" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2003" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="1002" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2002" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="1002" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2002" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="1062" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" rename="Team" />
+            <SelectField field="2001" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="354" y="1062" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="Team" />
+          </KeyFields>
+          <DataFields>
+            <Field field="Team" selected="False" />
+            <Field field="2001" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="966" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">C:\Users\andre\fall2019courses\databases\project\baseball\wins_outputDB_transposed_clean_12_05.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>wins_outputDB_transposed_clean_12_05.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="882" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="Year" order="Ascending" />
+            <Field field="Team" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Year - Ascending
+Team - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="774" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Team] != "G"</Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>!=</Operator>
+            <Field>Team</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-12-05 11:09:29</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>G</Operand>
+              <StartDate>2019-12-05 11:09:29</StartDate>
+              <EndDate>2019-12-05 11:09:29</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Team] != "G"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#5">
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#6">
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#7">
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#8">
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#9">
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#10">
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#11">
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#12">
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#13">
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#14">
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#15">
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#16">
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#17">
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#18">
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#19">
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="Output" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="True" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>transpose_winsv2_toDB</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

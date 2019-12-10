@@ -1,0 +1,849 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="18" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[MLB Addresses
+]]></AnnotationText>
+          <DefaultAnnotationText>MLB_Addresses.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Team" size="254" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv" type="V_WString" />
+            <Field name="Park Name" size="254" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv" type="V_WString" />
+            <Field name="Street" size="254" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv" type="V_WString" />
+            <Field name="City" size="254" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv" type="V_WString" />
+            <Field name="State" size="254" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv" type="V_WString" />
+            <Field name="Zip" size="254" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv" type="V_WString" />
+            <Field name="Phone" size="254" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv" type="V_WString" />
+            <Field name="Website1" size="254" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv" type="V_WString" />
+            <Field name="Website2" size="254" source="File: C:\Users\17032\Documents\Fall2019\Databases\Group Project\MLB_Addresses.csv" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="162" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Zip" selected="True" type="String" size="254" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[select descriptive data for address dim
+]]></AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="270" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IIF(length([Zip]) == 4 , &quot;0&quot; + [Zip] , [Zip])" field="Zip" size="254" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>add 0 to 4 digit zipcode</AnnotationText>
+          <DefaultAnnotationText><![CDATA[Zip = IIF(length([Zip]) == 4 , "0" + [Zip] , [Zip])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="378" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Team" selected="True" />
+            <SelectField field="Park Name" selected="True" />
+            <SelectField field="Street" selected="True" />
+            <SelectField field="City" selected="True" />
+            <SelectField field="State" selected="True" />
+            <SelectField field="Zip" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="738" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>AddressKey</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="162" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="City" selected="False" rename="TeamCity" />
+            <SelectField field="Team" selected="True" />
+            <SelectField field="Park Name" selected="False" />
+            <SelectField field="Street" selected="False" />
+            <SelectField field="State" selected="False" />
+            <SelectField field="Zip" selected="False" />
+            <SelectField field="Phone" selected="True" />
+            <SelectField field="Website1" selected="True" />
+            <SelectField field="Website2" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>select descriptive data for team dim</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="582" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Team</Field>
+          <RegExExpression value="(\w+)\s(\S+)$" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>Team</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="TeamCity" type="V_WString" size="254" />
+            <Field field="TeamMascot" type="V_WString" size="254" />
+          </ParseComplex>
+          <Match>
+            <Field>TeamCity_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>separate team city from team mascot</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="270" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[REGEX_Match([Team], "^[^\s]+\s[^\s]+\s[^\s]+$")
+
+
+]]></Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>
+            </Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-12-04 22:37:46</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2019-12-04 22:37:46</StartDate>
+              <EndDate>2019-12-04 22:37:46</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>filter team names with 3 words vs 2 words</AnnotationText>
+          <DefaultAnnotationText><![CDATA[REGEX_Match([Team], "^[^\s]+\s[^\s]+\s[^\s]+$")
+
+
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="846" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF Contains([Team], &quot;Baltimore&quot;) THEN&#xA;&quot;BAL&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Boston&quot;) THEN&#xA;&quot;BOS&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Chicago White&quot;) THEN&#xA;&quot;CHW&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Cleveland&quot;) THEN&#xA;&#xA;&quot;CLE&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Detroit&quot;) THEN&#xA;&quot;DET&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Houston&quot;) THEN&#xA;&quot;HOU&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Kansas&quot;) THEN&#xA;&quot;KCR&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Los Angeles Angels&quot;) THEN&#xA;&quot;LAA&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Minnesota&quot;) THEN&#xA;&quot;MIN&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;New York Yankees&quot;) THEN&#xA;&quot;NYY&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Oakland&quot;) THEN&#xA;&quot;OAK&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Seattle&quot;) THEN&#xA;&quot;SEA&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Tampa&quot;) THEN&#xA;&quot;TBR&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Texas&quot;) THEN&#xA;&quot;TEX&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Toronto&quot;) THEN&#xA;&quot;TOR&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Arizona&quot;) THEN&#xA;&quot;ARI&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Atlanta&quot;) THEN&#xA;&quot;ATL&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Chicago Cubs&quot;) THEN&#xA;&quot;CHC&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Cincinnati&quot;) THEN&#xA;&quot;CIN&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Colorado&quot;) THEN&#xA;&quot;COL&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Los Angeles Dodgers&quot;) THEN&#xA;&quot;LAD&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Miami&quot;) THEN&#xA;&quot;MIA&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;New York Mets&quot;) THEN&#xA;&quot;NYM&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Philadelphia&quot;) THEN&#xA;&quot;PHI&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Pittsburgh&quot;) THEN&#xA;&quot;PIT&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;San Diego Padres&quot;) THEN&#xA;&quot;SDP&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;San Francisco&quot;) THEN&#xA;&quot;SFG&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Cardinals&quot;) THEN&#xA;&quot;STL&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Washington nationals&quot;) THEN&#xA;&quot;WSN&quot;&#xA;&#xA;ELSEIF Contains([Team], 'Milwaukee Brewers')&#xA;THEN&#xA;'MIL'&#xA;ELSE Null()&#xA;&#xA;ENDIF" field="Team" size="254" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[create universal team acronyms
+]]></AnnotationText>
+          <DefaultAnnotationText>Team = IF Contains([Team], "Baltimore") THEN
+"BAL"
+
+ELSEIF Contains([Team], "Bos...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="582" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Team</Field>
+          <RegExExpression value="^(\w+)\s(\w+\s+\S+)" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>Team</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="TeamCity" type="V_WString" size="254" />
+            <Field field="TeamMascot" type="V_WString" size="254" />
+          </ParseComplex>
+          <Match>
+            <Field>TeamCity_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="438" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>CONTAINS([team],'red') OR CONTAINS([team],'white') OR CONTAINS([team],'blue')</Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>
+            </Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-12-04 23:05:36</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2019-12-04 23:05:36</StartDate>
+              <EndDate>2019-12-04 23:05:36</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>if team name contains a color, mascot has 2 words</AnnotationText>
+          <DefaultAnnotationText>CONTAINS([team],'red') OR CONTAINS([team],'white') OR CONTAINS([team],'blue')</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="582" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Team</Field>
+          <RegExExpression value="^(\w+\s\w+)\s(\S+)" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>Team</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="TeamCity" type="V_WString" size="254" />
+            <Field field="TeamMascot" type="V_WString" size="254" />
+          </ParseComplex>
+          <Match>
+            <Field>TeamCity_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="738" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="1062" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>TeamKey</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="486" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF Contains([Team], &quot;Baltimore&quot;) THEN&#xA;&quot;BAL&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Boston&quot;) THEN&#xA;&quot;BOS&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Chicago White&quot;) THEN&#xA;&quot;CHW&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Cleveland&quot;) THEN&#xA;&#xA;&quot;CLE&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Detroit&quot;) THEN&#xA;&quot;DET&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Houston&quot;) THEN&#xA;&quot;HOU&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Kansas&quot;) THEN&#xA;&quot;KCR&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Los Angeles Angels&quot;) THEN&#xA;&quot;LAA&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Minnesota&quot;) THEN&#xA;&quot;MIN&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;New York Yankees&quot;) THEN&#xA;&quot;NYY&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Oakland&quot;) THEN&#xA;&quot;OAK&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Seattle&quot;) THEN&#xA;&quot;SEA&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Tampa&quot;) THEN&#xA;&quot;TBR&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Texas&quot;) THEN&#xA;&quot;TEX&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Toronto&quot;) THEN&#xA;&quot;TOR&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Arizona&quot;) THEN&#xA;&quot;ARI&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Atlanta&quot;) THEN&#xA;&quot;ATL&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Chicago Cubs&quot;) THEN&#xA;&quot;CHC&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Cincinnati&quot;) THEN&#xA;&quot;CIN&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Colorado&quot;) THEN&#xA;&quot;COL&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Los Angeles Dodgers&quot;) THEN&#xA;&quot;LAD&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Miami&quot;) THEN&#xA;&quot;MIA&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;New York Mets&quot;) THEN&#xA;&quot;NYM&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Philadelphia&quot;) THEN&#xA;&quot;PHI&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Pittsburgh&quot;) THEN&#xA;&quot;PIT&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;San Diego Padres&quot;) THEN&#xA;&quot;SDP&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;San Francisco&quot;) THEN&#xA;&quot;SFG&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Cardinals&quot;) THEN&#xA;&quot;STL&quot;&#xA;&#xA;ELSEIF Contains([Team], &quot;Washington nationals&quot;) THEN&#xA;&quot;WSN&quot;&#xA;&#xA;ELSEIF Contains([Team], 'Milwaukee Brewers')&#xA;THEN&#xA;'MIL'&#xA;ELSE Null()&#xA;&#xA;ENDIF" field="Team" size="254" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Create universal team acronyms</AnnotationText>
+          <DefaultAnnotationText>Team = IF Contains([Team], "Baltimore") THEN
+"BAL"
+
+ELSEIF Contains([Team], "Bos...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="894" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL4|||dim_address</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL>ALTER TABLE `mlb_dw`.`dim_address` 
+CHANGE COLUMN `AddressKey` `AddressKey` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`AddressKey`);
+;</PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use mlb_dw;
+DROP TABLE IF EXISTS dim_address;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>output address dim to MySQL mlb_dw database</AnnotationText>
+          <DefaultAnnotationText>aka:MySQL4
+Table=dim_address</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1254" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL4|||dim_team</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL>ALTER TABLE `mlb_dw`.`dim_team` 
+CHANGE COLUMN `TeamKey` `TeamKey` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`TeamKey`);
+;</PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use mlb_dw;
+DROP TABLE IF EXISTS dim_team;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[output team dim tp MySQL mlb_dw database
+]]></AnnotationText>
+          <DefaultAnnotationText>aka:MySQL4
+Table=dim_team</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="18" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\17032\Documents\Fall2019\Databases\Group Project\wins_output.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[read in data
+]]></AnnotationText>
+          <DefaultAnnotationText>wins_output.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Team" size="254" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="V_WString" />
+            <Field name="Year" source="Transpose:" type="Int64" />
+            <Field name="Wins" source="File: C:\Users\andre\fall2019courses\databases\project\baseball\MLB_Wins.csv" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="234" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="Year" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="126" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Year" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>select just year field</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="438" y="6" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL4|||dim_calendar</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL><![CDATA[ALTER TABLE `mlb_dw`.`dim_calendar` 
+CHANGE COLUMN `CalendarKey` `CalendarKey` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`CalendarKey`);
+;
+]]></PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use mlb_dw;
+DROP TABLE IF EXISTS dim_calendar;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>output calendar dim to MySQL mlb_dw database</AnnotationText>
+          <DefaultAnnotationText>aka:MySQL4
+Table=dim_calendar</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="330" y="6" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>CalendarKey</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="606" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="Team" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Team - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="954" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="Team" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Team - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1158" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="TeamKey" selected="True" />
+            <SelectField field="Team" selected="True" />
+            <SelectField field="TeamCity" selected="True" />
+            <SelectField field="TeamMascot" selected="True" />
+            <SelectField field="Phone" selected="True" />
+            <SelectField field="Website1" selected="True" />
+            <SelectField field="Website2" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[reorder fields
+]]></AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="False" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="True" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="True" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="False" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Unique" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Dimensions</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

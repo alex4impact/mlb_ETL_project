@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\omarh\Documents\MLB_Attendance_2.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>MLB_Attendance_2.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RK" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="TEAM" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="HOME GMS" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="HOME TOTAL" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="HOME AVG" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="HOME PCT" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="ROAD GMS" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="ROAD AVG" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="ROAD PCT" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="OVERALL GMS" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="OVERALL AVG" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="OVERALL PCT" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+            <Field name="YEAR" size="254" source="File: C:\Users\omarh\Documents\MLB_Attendance_2.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="162" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RK" selected="True" />
+            <SelectField field="TEAM" selected="True" />
+            <SelectField field="HOME GMS" selected="True" />
+            <SelectField field="HOME TOTAL" selected="True" />
+            <SelectField field="HOME PCT" selected="True" />
+            <SelectField field="YEAR" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="270" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([HOME TOTAL], &quot;,&quot;, &quot;&quot;)" field="HOME TOTAL" size="254" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[HOME TOTAL = Replace([HOME TOTAL], ",", "")
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="402" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="HOME GMS" selected="True" type="Int64" size="8" />
+            <SelectField field="HOME TOTAL" selected="True" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="498" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Round([HOME TOTAL]/[HOME GMS],2)" field="Average Home Attendance" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [TEAM]= 'Seattle' THEN 'SEA' &#xA;ELSEIF [TEAM]= 'San Francisco' THEN 'SFG'&#xA;ELSEIF [TEAM]='NY Yankees' THEN 'NYY'&#xA;ELSEIF [TEAM]='Cleveland' THEN 'CLE'&#xA;ELSEIF [TEAM]='Colorado' THEN 'COL'&#xA;ELSEIF [TEAM]='Baltimore' THEN 'BAL'&#xA;ELSEIF [TEAM]='St. Louis' THEN 'STL'&#xA;ELSEIF [TEAM]='LA Dodgers' Then 'LAD'&#xA;ELSEIF [TEAM]='Houston' Then 'HOU'&#xA;ELSEIF [TEAM]='Chicago Cubs' Then 'CHC'&#xA;ELSEIF [TEAM]='Texas' Then 'TEX'&#xA;ElSEIF [TEAM]='Atlanta' Then 'ATL'&#xA;ELSEIF [TEAM]='Milwaukee' Then 'MIL'&#xA;ELSEIF [TEAM]='Arizona' Then 'ARI'&#xA;ELSEIF [TEAM]='NY Mets' Then 'NYM'&#xA;ELSEIF [TEAM]='Boston' Then 'BOS'&#xA;ELSEIF [TEAM]='Pittsburgh' Then 'PIT'&#xA;ELSEIF [TEAM]='San Diego' Then 'SDP'&#xA;ELSEIF [TEAM]='Oakland' Then 'OAK'&#xA;ElseIF [TEAM]='LA Angels' Then 'LAA'&#xA;ELSEIF [TEAM]='Detroit' Then 'DET'&#xA;Elseif [TEAM]='Cincinnati' Then 'CIN'&#xA;Elseif [TEAM]='Toronto' Then 'TOR'&#xA;Elseif [TEAM]='Philadelphia' Then 'PHI'&#xA;ELSEIF [TEAM]='Minnesota' Then 'MIN'&#xA;ELSEIF [TEAM]='Chicago White Sox' Then 'CHW'&#xA;ELSEIF [TEAM]='Kansas City' Then 'KCR'&#xA;ELSEIF [TEAM]='Tampa Bay' Then 'TBR'&#xA;ELSEIF [TEAM]='Florida' or [TEAM]='Miami' Then 'MIA'&#xA;ELSE 'WSN'&#xA;ENDIF" field="Team_Abr" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Average Home Attendance = Round([HOME TOTAL]/[HOME GMS],2)
+Team_Abr = IF [TEAM]=...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="594" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RK" selected="True" />
+            <SelectField field="YEAR" selected="True" />
+            <SelectField field="Team_Abr" selected="True" />
+            <SelectField field="TEAM" selected="True" />
+            <SelectField field="HOME GMS" selected="True" />
+            <SelectField field="HOME TOTAL" selected="True" />
+            <SelectField field="HOME PCT" selected="True" />
+            <SelectField field="Home Attendance Avg" selected="True" />
+            <SelectField field="Average Home Attendance" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="690" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="YEAR" order="Ascending" />
+            <Field field="TEAM" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>YEAR - Ascending
+TEAM - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="774" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">C:\Users\omarh\Documents\MLB_Attendance_Final.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>MLB_Attendance_Final.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>MLB_Attendance_Final1</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
